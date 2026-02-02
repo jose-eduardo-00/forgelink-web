@@ -2,9 +2,11 @@ import { useState } from "react";
 import BackgroundImage from "../../../assets/loginImg.jpg";
 import { Link2, Copyright } from "lucide-react";
 import MainButton from "../../../components/buttons/mainButton";
+import MainInput from "../../../components/inputs/mainInput";
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState("maker");
+  const [email, setEmail] = useState("");
 
   return (
     <main className="flex">
@@ -117,6 +119,15 @@ const Login = () => {
               ou continue com seu email
             </span>
             <hr className="flex-1 border-t border-zinc-300" />
+          </div>
+          <div>
+            <MainInput
+              label="Email"
+              type="email"
+              placeholder="Digite seu email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
         </div>
       </div>
