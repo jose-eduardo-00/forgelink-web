@@ -63,8 +63,8 @@ const Login = () => {
           </span>
         </div>
       </div>
-      <div className="w-1/2 px-14 ">
-        <div className="flex flex-col px-10 py-12 max-w-lg mx-auto">
+      <div className="w-1/2 p-14 relative">
+        <div className="flex flex-col px-10 max-w-lg mx-auto">
           <div className="flex items-center justify-center p-1 bg-zinc-100 rounded-lg max-w-md">
             <MainButton
               onClick={() => setActiveTab("maker")}
@@ -160,7 +160,7 @@ const Login = () => {
             Entrar
           </MainButton>
 
-          <p className="mt-5 text-center text-sm text-zinc-500">
+          <p className="mt-6 text-center text-sm text-zinc-500">
             Ainda não tem uma conta?{" "}
             <Link
               to="/register"
@@ -170,8 +170,9 @@ const Login = () => {
             </Link>
           </p>
 
-          <p className="mt-6 text-center text-xs text-zinc-400">
+          <p className="absolute bottom-8 left-0 right-0 text-center text-xs text-zinc-400">
             Ao continuar, você concorda com os termos da ForgeLink.
+            <br />
             <a href="#" className="underline hover:text-zinc-600">
               Termos e serviços
             </a>{" "}
