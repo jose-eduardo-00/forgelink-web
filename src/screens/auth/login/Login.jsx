@@ -3,10 +3,17 @@ import BackgroundImage from "../../../assets/loginImg.jpg";
 import { Link2, Copyright } from "lucide-react";
 import MainButton from "../../../components/buttons/mainButton";
 import MainInput from "../../../components/inputs/mainInput";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState("maker");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const showPasswordToggle = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <main className="flex">
@@ -56,7 +63,7 @@ const Login = () => {
           </span>
         </div>
       </div>
-      <div className="w-1/2 p-14">
+      <div className="w-1/2 px-14 ">
         <div className="flex flex-col px-10 py-12 max-w-lg mx-auto">
           <div className="flex items-center justify-center p-1 bg-zinc-100 rounded-lg max-w-md">
             <MainButton
@@ -128,7 +135,52 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+
+            <div className="relative">
+              <Link to="/forgot-password">
+                <button
+                  type="button"
+                  className="text-sm font-medium text-amber-600 hover:text-amber-700 absolute right-0 top-0"
+                >
+                  Esqueceu a senha?
+                </button>
+              </Link>
+              <MainInput
+                label="Senha"
+                type="password"
+                placeholder="••••••••"
+                value={password}
+                showPassword={showPassword}
+                showPasswordToggle={showPasswordToggle}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
           </div>
+          <MainButton className="w-full py-3 bg-zinc-900 hover:bg-zinc-800 text-white mt-2">
+            Entrar
+          </MainButton>
+
+          <p className="mt-5 text-center text-sm text-zinc-500">
+            Ainda não tem uma conta?{" "}
+            <Link
+              to="/register"
+              className="font-medium text-amber-600 hover:text-amber-700"
+            >
+              Cadastre-se
+            </Link>
+          </p>
+
+          <p className="mt-6 text-center text-xs text-zinc-400">
+            Ao continuar, você concorda com os termos da ForgeLink.
+            <a href="#" className="underline hover:text-zinc-600">
+              Termos e serviços
+            </a>{" "}
+            e{" "}
+            <a href="#" className="underline hover:text-zinc-600">
+              Política de privacidade
+            </a>
+            .
+          </p>
         </div>
       </div>
     </main>
